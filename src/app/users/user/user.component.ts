@@ -16,8 +16,15 @@ export class UserComponent implements OnInit {
       id: this.route.snapshot.params['id'],
       name: this.route.snapshot.params['name']
     };
+    // params is an observable. a feature that allows you to work with async tasks
+
     this.route.params
-      .
+      .subscribe(
+        (params) => {
+          this.user.id = params['id'];
+          this.user.name = params['name'];
+        }
+      );
   }
 
 
